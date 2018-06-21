@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var CounterSchema = new Schema({
+var CounterSchema = Schema({
     _id: {type: String, required: true},
     seq: { type: Number, default: 0 }
 });
@@ -9,7 +9,7 @@ var CounterSchema = new Schema({
 var counter = mongoose.model('counter', CounterSchema);
 
 var urlSchema = new Schema({
-  _id: {type: Number, index: true},
+  _id: {type: Number},
   long_url: String,
   created_at: Date
 });
