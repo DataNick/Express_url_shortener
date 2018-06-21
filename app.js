@@ -11,7 +11,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 mongoose.connect('mongodb://' + config.db.host + '/' + config.db.name);
 
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -64,10 +63,9 @@ app.get('/:encoded_id', function(req, res){
   Url.findOne({_id: id}, function (err, doc){
     if (doc) {
       // found an entry in the DB, redirect the user to their destination
-      console.log(doc.long_url)
+      console.log(doc.long_url);
 
       res.redirect(doc.long_url);
-
 
     } else {
       // nothing found, take 'em home
@@ -77,7 +75,7 @@ app.get('/:encoded_id', function(req, res){
 });
 
 var server = app.listen(3000, function(){
-  console.log('This is Docter Frasier Crane. I\'m listening.')
+  console.log('Server running on port 3000');
 })
 
 
